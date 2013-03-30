@@ -1,5 +1,5 @@
 fazell: ./src/fazell.c
-	mkdir ./bin
+	+@[ -d $(./bin $@) ] || mkdir -p $(./bin $@)
 	gcc -o ./bin/fazell ./src/fazell.c
 
 install:
