@@ -39,8 +39,8 @@ int main(int argc, char **argv) {
     FILE *outFP;
     unsigned long numberOfBytes;
 
-    checkArguments(argc, argv);
     printTitle();
+    checkArguments(argc, argv);
 
 	printf("File selected: %s\n\n", argv[1]);  
   	enterToContinue();
