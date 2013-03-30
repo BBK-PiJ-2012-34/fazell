@@ -7,7 +7,7 @@
  * Email:   hisham@binarybakery.com             *
  *                                              *
  * This program is licensed under LGPL.         *
- * See readme.txt for more information.         *
+ * See README.md for more information.          *
  ************************************************
  * Version history: 0.1 - 29 March 2013         *
  ************************************************/
@@ -46,43 +46,11 @@ int main(int argc, char **argv) {
   	enterToContinue();
   
     inFP = fopen(argv[1],"r+");
-   
-   	printAsText(inFP);
-
-    enterToContinue();
-    
-    rewind(inFP);
-    numberOfBytes = printAsBytes(inFP); 
-    printf("\nFile is %lu bytes long\n",numberOfBytes);
-    
-    enterToContinue();
-
     outFP = fopen(argv[2], "w");
 
-    rewind(inFP);
     reverseBytes(inFP, outFP);
     fclose(outFP);
-    
-    // Using a statement block to avoid having to declare identifiers at top of function
-    {
-    	// Finding bits using bitwise operators with bitIsOnMask
-    	int i = 16;
-    
-	    if (bitIsOnMask((char)i,4))
-		printf("Mask: Bit 4 is on for %i\n",i); 	
-    }
 
-    {
-    	// Finding bits using mod 2 with bitIsOnMod
-    	int i = 32;
-    
-    	if (bitIsOnMod((char)i,5))
-			printf("Mod: Bit 5 is on for %i\n",i);
-		
-		printBits((char)i);
-		printf("\n");
-		 	
-    }
     return 0;
 }
 
@@ -94,7 +62,7 @@ void checkArguments(int argc, char **argv) {
 }
 
 void printTitle() {
-    printf ("Fazell v0.1 - A rather curious obfuscator.\n");
+    printf ("Fazell v0.1 - A rather curious obfuscator by Hisham Khalifa - 29 March 2013\n");
 }
 
 void printAsText(FILE *fp) {
@@ -121,7 +89,6 @@ unsigned long printAsBytes(FILE *fp) {
     
     return byteCount;
 }
-
 
 void reverseBytes(FILE *in, FILE *out) {
 	char buffer[BUFFER_SIZE];
